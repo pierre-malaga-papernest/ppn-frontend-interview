@@ -3,7 +3,8 @@ import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable, of } from 'rxjs';
 import { hot, cold } from 'jasmine-marbles';
 import { UserEffects } from './effects';
-import * as fromActions from './actions';
+import { LoadUser, LoadUserSuccess } from './actions';
+import { UserService } from '../services/user.service';
 
 class MockUserService {
   getUsers() {
@@ -20,7 +21,7 @@ describe('User Effects', () => {
       providers: [
         UserEffects,
         provideMockActions(() => actions$),
-        { provide: UserService, useClasss: MockUserService },
+        { provide: UserService, useClass: MockUserService },
       ],
     });
 
@@ -28,8 +29,8 @@ describe('User Effects', () => {
   });
 
   it('should return a LOAD_USER_SUCCESS action', () => {
-    const action = new fromActions.LoadUser();
-    const completion = new fromActions.LoadUserSuccess({ name: 'Alice' });
+    const action = LoadUser();
+    const completion = LoadUserSuccess({ name: 'Alice' });
 
     actions$ = hot('-a', { a: action });
     const expected = cold('--b', { b: completion });

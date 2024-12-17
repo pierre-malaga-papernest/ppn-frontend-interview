@@ -1,4 +1,4 @@
-import * as fromActions from './actions';
+import { LoadUser } from './actions';
 import { userReducer } from './reducer';
 
 describe('User Reducer', () => {
@@ -9,7 +9,7 @@ describe('User Reducer', () => {
   });
 
   it('should load user', () => {
-    const action = new fromActions.LoadUser();
+    const action = LoadUser();
     const state = userReducer({ name: 'Jane' }, action);
     expect(state.name).toEqual('Alice');
   });
