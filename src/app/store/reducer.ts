@@ -1,14 +1,12 @@
-import * as fromActions from './actions';
+import { createReducer, on } from '@ngrx/store';
+import * as UserActions from './actions';
 
 const initialState = {
   name: 'John',
 };
 
-export function userReducer(state = initialState, action: fromActions.Actions): any {
-  switch (action.type) {
-    case fromActions.LOAD_USER:
-      return { ...state, name: 'Jane' };
-    default:
-      return state;
-  }
-}
+export const userReducer = createReducer(
+  initialState,
+  on(UserActions.LoadUser,  (state)=> ({...state, name: 'Jane' }) ),
+  on(UserActions.LoadUserSuccess,  (state, {name})=> ({...state, name }) )
+);

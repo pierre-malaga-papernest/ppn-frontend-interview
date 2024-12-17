@@ -13,7 +13,9 @@ export class UserEffects {
   loadUser$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fromActions.LOAD_USER),
-      switchMap(() => this.userService.getUsers()),
+      switchMap(() => this.userService.getUser().pipe(
+        map(({name}) => ({type: fromActions.LOAD_USER_SUCCESS, props: {name}}) )
+      )),
       catchError(() => of({ type: fromActions.LOAD_USER_FAIL }))
     )
   );

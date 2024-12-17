@@ -32,9 +32,10 @@ describe('User Effects', () => {
     const action = LoadUser();
     const completion = LoadUserSuccess({ name: 'Alice' });
 
-    actions$ = hot('-a', { a: action });
+    actions$ = hot('-a-', { a: action });
+
     const expected = cold('--b', { b: completion });
 
-    expect(effects.loadUser$).toBeObservable(expected);
+    expect(effects.loadUser$).toBeObservable(expected);  
   });
 });

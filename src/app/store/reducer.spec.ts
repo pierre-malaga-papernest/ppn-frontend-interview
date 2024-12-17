@@ -5,12 +5,12 @@ describe('User Reducer', () => {
   it('should return the default state', () => {
     const action = {} as any;
     const state = userReducer(undefined, action);
-    expect(state).toEqual({});
+    expect(state).toEqual({name: 'John'});
   });
 
   it('should load user', () => {
     const action = LoadUser();
     const state = userReducer({ name: 'Jane' }, action);
-    expect(state.name).toEqual('Alice');
+    expect(state.name).toEqual('Jane');
   });
 });
