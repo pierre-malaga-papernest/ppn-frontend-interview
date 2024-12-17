@@ -9,4 +9,8 @@ export class UserService {
   getUser(): Observable<User> {
     return of();
   }
+
+  getUsersList(): Observable<User[]>{
+    return of ([]);
+  }
 }

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { UserEffects } from './store/effects';
 import { userReducer } from './store/reducer';
 import { HttpClientModule } from '@angular/common/http';
+import { UsersListComponent } from './components/users-list/users-list.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     StoreModule.forRoot({ user: userReducer }),
     EffectsModule.forRoot([UserEffects]),
+    UsersListComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
