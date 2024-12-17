@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { AppComponent } from './app.component';
 import { AppState } from './store/state';
 import * as fromActions from './store/actions';
+import { SettingsService } from './services/settings.service';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -17,10 +18,16 @@ describe('AppComponent', () => {
         {
           provide: Store,
           useValue: {
-            select: jasmine.createSpy().and.returnValue(of(null)),
+            select: jasmine.createSpy().and.returnValue(of({name: 'Alice'})),
             dispatch: jasmine.createSpy(),
           },
         },
+        {
+          provide: SettingsService,
+          useValue: {
+            getSettings: () => of({language: 'ES', theme: 'default'})
+          }
+        }
       ],
     });
     store = TestBed.inject(Store);
@@ -30,14 +37,12 @@ describe('AppComponent', () => {
   });
 
   it('should create the app', () => {
-
     expect(component).toBeTruthy();
   });
 
   it('should load user on button click', () => {
-    const spy = spyOn(store, 'dispatch');
     const button = fixture.nativeElement.querySelector('button');
     button.click();
-    expect(spy).toHaveBeenCalledWith(new fromActions.LoadUser());
+    expect(store.dispatch).toHaveBeenCalledWith(fromActions.LoadUser());
   });
 });
