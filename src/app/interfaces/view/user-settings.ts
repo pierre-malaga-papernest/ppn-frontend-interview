@@ -1,4 +1,4 @@
-export interface Settings {
+export interface UserSettings {
     theme: string;
     language: string;
 }
