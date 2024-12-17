@@ -1,3 +1,5 @@
+import { User } from "../interfaces/user";
+
 export interface AppState {
-  user: { name: string };
+  user: User;
 }
