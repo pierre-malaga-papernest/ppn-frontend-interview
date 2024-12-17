@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from './store/state';
 import * as fromActions from './store/actions';
 import { Observable } from 'rxjs';
-import { User } from './interfaces/user';
 import { SettingsService } from './services/settings.service';
+import { User } from './interfaces/user';
 
 @Component({
   selector: 'app-root',
@@ -16,27 +16,23 @@ import { SettingsService } from './services/settings.service';
     </div>
   `,
 })
+
+// TODO: COMPONENTISE AND EXTRACT TEMPLATE
 export class AppComponent {
-  user$: Observable<any>;
-  _userList: Array<User>;
+  user$: Observable<User>;
 
   constructor(
     private store: Store<AppState>,
-    private settings_service: SettingsService
-  ) {}
-
-  ngOnInit() {
-    this.user$ = this.store.select((state) => state.user);
-    this.user$.subscribe((users) => this._userList = users);
+    private settingsService: SettingsService
+  ) {
+    this.user$ = store.select((state) => state.user);
   }
 
-  // Error: No return type
-  loadUser() {
+  loadUser(): void {
     this.store.dispatch(new fromActions.LoadUser());
   }
 
-  // Error: No return type
-  loadSettings() {
-    this.settings_service.getSettings();
+  loadSettings(): void {
+    this.settingsService.getSettings();
   }
 }

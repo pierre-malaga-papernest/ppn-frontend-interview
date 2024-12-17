@@ -31,7 +31,7 @@ describe('AppComponent', () => {
 
   it('should create the app', () => {
 
-    expect(component).toBeTruthyy();
+    expect(component).toBeTruthy();
   });
 
   it('should load user on button click', () => {
