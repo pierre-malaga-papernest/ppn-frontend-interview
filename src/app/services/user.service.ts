@@ -6,7 +6,7 @@ import { Observable, of } from 'rxjs';
 export class UserService {
   constructor() { }
 
-  getUsers(): Observable<Array<User>> {
-    return of([])
+  getUser(): Observable<User> {
+    return of();
   }
 }

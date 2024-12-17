@@ -1,48 +1,37 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Settings } from '../interfaces/settings';
+import { SettingsDTO } from '../interfaces/domain/settings.dto';
+import { LanguageDTO } from '../interfaces/domain/language.dto';
+import { catchError, combineLatest, EMPTY, filter, map, Observable } from 'rxjs';
+import { UserSettings } from '../interfaces/view/user-settings';
+import { catchErrorWithMessage } from '../utils/catch-error-with-message';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SettingsService {
-  public readonly USER_SETTINGS_API: string = 'settings_url';
-  public readonly USER_LANGUAGE_API: string = 'language_url';
-  public user_settings: Settings;
+  readonly USER_SETTINGS_API: string = 'settings_url';
+  readonly USER_LANGUAGE_API: string = 'language_url';
+ 
+  userSettings: UserSettings = {
+    theme: 'default',
+    language: 'EN'
+  };
 
-  constructor(
-    private http_client: HttpClient
-  ) {
+  constructor(private httpClient: HttpClient) {}
 
-    this.user_settings = {
-      theme: 'default',
-      language: 'EN'
-    };
-  }
-
-  getSettings() {
-    return this.http_client.get(this.USER_SETTINGS_API)
-      .subscribe({
-        next: (settings: any) => {
-          if (settings && settings.theme) {
-            this.user_settings.theme = settings.theme;
-          }
-
-          return this.http_client.get(this.USER_LANGUAGE_API)
-            .subscribe({
-              next: (language: any) => {
-                if (language && language.lang_code) {
-                  this.user_settings.language = language.lang_code;
-                }
-              },
-              error: () => {
-                console.error('Error occurred when loading user language.')
-              }
-            })
-        },
-        error: () => {
-          console.error('Error occurred when loading user settings.')
-        }
-      });
+  getSettings(): Observable<UserSettings>{
+    return combineLatest([
+      this.httpClient.get<SettingsDTO>(this.USER_SETTINGS_API).pipe(
+        catchErrorWithMessage('Error ocurred when loading user settings')
+      ),
+      this.httpClient.get<LanguageDTO>(this.USER_LANGUAGE_API).pipe(
+        catchErrorWithMessage('Error ocurred when loading user language')
+      )
+    ])
+    .pipe(
+      filter(obsList => obsList.every(obs => !!obs)),
+      map(([{theme}, {lang_code: language}]) => ({language, theme}))
+    );
   }
 }
