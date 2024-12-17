@@ -5,6 +5,14 @@ import { AppComponent } from './app.component';
 import { AppState } from './store/state';
 import * as fromActions from './store/actions';
 import { SettingsService } from './services/settings.service';
+import { Component } from '@angular/core';
+import { UsersListComponent } from './components/users-list/users-list.component';
+
+@Component({
+  selector: 'app-users-list',
+  standalone: true,
+})
+class MockUsersListComponent extends UsersListComponent {}
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -14,6 +22,7 @@ describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
+      imports: [MockUsersListComponent],
       providers: [
         {
           provide: Store,
