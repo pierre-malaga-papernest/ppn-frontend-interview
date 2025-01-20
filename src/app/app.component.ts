@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from './store/state';
 import * as fromActions from './store/actions';
 import { Observable } from 'rxjs';
-import { User } from './interfaces/user';
+import { User } from './interfaces/user-info';
 import { SettingsService } from './services/settings.service';
 
 @Component({
@@ -26,8 +26,8 @@ export class AppComponent {
   ) {}
 
   ngOnInit() {
-    this.user$ = this.store.select((state) => state.user);
-    this.user$.subscribe((users) => this._userList = users);
+    this.user$ = this.store.select(state => state.user);
+    this.user$.subscribe(users => (this._userList = users));
   }
 
   // Error: No return type
