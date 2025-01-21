@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { User } from 'src/app/interfaces/user';
+import { User } from 'src/app/model/user';
 import {
   StoreStatus,
   StoreStatusType,
@@ -18,7 +18,7 @@ export const initialState: UsersState = {
   status: StoreStatus.idle,
 };
 
-export const userReducer = createReducer(
+export const usersReducer = createReducer(
   initialState,
   on(loadUsers, (state: UsersState) => ({
     ...state,

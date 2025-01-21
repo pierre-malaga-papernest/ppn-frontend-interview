@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { UserInfo } from '../interfaces/user-info';
-import { User } from '../interfaces/user';
+import { UserInfo } from '../../../model/user-info';
+import { User } from '../../../model/user';
+import { UsersService, UserInfoService } from './user.service.interface';
 
 @Injectable()
-export class UserService {
+export class UserService implements UsersService, UserInfoService {
   constructor() {}
 
   getUserInfo(): Observable<UserInfo> {

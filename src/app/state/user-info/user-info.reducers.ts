@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { UserInfo } from 'src/app/interfaces/user-info';
+import { UserInfo } from 'src/app/model/user-info';
 import {
   StoreStatus,
   StoreStatusType,
@@ -11,26 +11,26 @@ import {
 } from './user-info.actions';
 
 export interface UserInfoState {
-  user: UserInfo;
+  userInfo: UserInfo;
   error: string | null;
   status: StoreStatusType;
 }
 
 export const initialState: UserInfoState = {
-  user: {} as UserInfo,
+  userInfo: {} as UserInfo,
   error: null,
   status: 'idle',
 };
 
-export const userReducer = createReducer(
+export const userInfoReducer = createReducer(
   initialState,
   on(loadUserInfo, (state: UserInfoState) => ({
     ...state,
     status: StoreStatus.loading,
   })),
-  on(loadUserInfoSuccess, (state: UserInfoState, { user }) => ({
+  on(loadUserInfoSuccess, (state: UserInfoState, { userInfo }) => ({
     ...state,
-    user,
+    userInfo,
     status: StoreStatus.success,
   })),
   on(loadUserInfoFailure, (state: UserInfoState, { error }) => ({

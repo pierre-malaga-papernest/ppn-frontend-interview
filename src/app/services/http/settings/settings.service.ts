@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Settings } from '../interfaces/settings';
 import { Observable } from 'rxjs';
+import { Settings } from 'src/app/model/settings';
+import { UserSettingsService } from './settings.service.interface';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SettingsService {
+export class SettingsService implements UserSettingsService {
   readonly USER_SETTINGS_API: string = 'settings_url';
   readonly USER_LANGUAGE_API: string = 'language_url';
 

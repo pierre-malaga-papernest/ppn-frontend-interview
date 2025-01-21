@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-import { Constants } from 'src/app/constants';
-import { Settings } from 'src/app/interfaces/settings';
+import { Constants } from 'src/app/shared/constants';
+import { Settings } from 'src/app/model/settings';
 import {
   StoreStatus,
   StoreStatusType,
