@@ -10,7 +10,7 @@ import {
   loadLanguageFailure,
   loadLanguageSuccess,
 } from './settings.actions';
-import { UserSettingsService } from 'src/app/services/http/settings/settings.service.interface';
+import { UserSettingsService } from 'src/app/services/http/settings/settings.service.abstract';
 
 @Injectable()
 export class SettingsEffects {

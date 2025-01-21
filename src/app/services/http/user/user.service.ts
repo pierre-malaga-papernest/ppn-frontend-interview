@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { UserInfo } from '../../../model/user-info';
 import { User } from '../../../model/user';
-import { UsersService, UserInfoService } from './user.service.interface';
+import { UsersService, UserInfoService } from './user.service.abstract';
 
 @Injectable()
 export class UserService implements UsersService, UserInfoService {

@@ -7,9 +7,9 @@ export interface UserInfo {
 }
 
 interface Address {
-  street_name: string;
+  streetName: string;
   complement: string;
   number: number;
   city: string;
-  zip_code: string;
+  zipCode: string;
 }

@@ -1,4 +1,11 @@
-div {
-    padding: 19px;
-    background-color: lightblue;
+.loading-buttons {
+  display: flex;
+  gap: 10px;
+  background-color: lightgreen;
+  margin: 10px 0;
+}
+
+.user-info {
+  background-color: lightblue;
+  margin-bottom: 10px;
 }

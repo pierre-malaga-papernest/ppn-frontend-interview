@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap } from 'rxjs';
 import { User } from 'src/app/model/user';
 import { loadUsers, loadUsersSuccess, loadUsersFailure } from './users.actions';
-import { UsersService } from 'src/app/services/http/user/user.service.interface';
+import { UsersService } from 'src/app/services/http/user/user.service.abstract';
 
 @Injectable()
 export class UserEffects {

@@ -20,17 +20,11 @@ import { loadUsers } from './state/users/users.actions';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <div *ngIf="userInfo$ | async as userInfo">
-      <h1>Hello, {{ userInfo.name }}!</h1>
-      <button (click)="loadUserInfo()">Load User</button>
-      <button (click)="loadSettings()">Load Settings</button>
-    </div>
-  `,
-  styles: ['./app.component.scss'],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  userInfo$: Observable<UserInfo>;
+  userInfo$: Observable<UserInfo | null>;
   userSettings$: Observable<Settings>;
   language$: Observable<string>;
   users$: Observable<User[]>;

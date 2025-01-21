@@ -11,15 +11,15 @@ import {
 } from './user-info.actions';
 
 export interface UserInfoState {
-  userInfo: UserInfo;
+  userInfo: UserInfo | null;
   error: string | null;
   status: StoreStatusType;
 }
 
 export const initialState: UserInfoState = {
-  userInfo: {} as UserInfo,
+  userInfo: null,
   error: null,
-  status: 'idle',
+  status: StoreStatus.idle,
 };
 
 export const userInfoReducer = createReducer(

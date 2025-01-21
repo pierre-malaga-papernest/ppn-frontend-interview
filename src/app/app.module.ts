@@ -10,11 +10,18 @@ import { UserInfoEffects } from './state/user-info/user-info.effects';
 import { SettingsEffects } from './state/settings/settings.effects';
 import { settingsReducer } from './state/settings/settings.reducers';
 import { usersReducer } from './state/users/users.reducers';
-import { UserService } from './services/http/user/user.service';
+import { UserListComponent } from './components/user-list/user-list.component';
+import {
+  UserInfoService,
+  UsersService,
+} from './services/http/user/user.service.abstract';
+import { UserSettingsService } from './services/http/settings/settings.service.abstract';
 import { SettingsService } from './services/http/settings/settings.service';
+import { MockUserService } from './services/http/user/mock-user.service';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, UserListComponent, UserInfoComponent],
   imports: [
     BrowserModule,
     StoreModule.forRoot({
@@ -25,7 +32,11 @@ import { SettingsService } from './services/http/settings/settings.service';
     EffectsModule.forRoot([UserEffects, SettingsEffects, UserInfoEffects]),
     HttpClientModule,
   ],
-  providers: [UserService, SettingsService],
+  providers: [
+    { provide: UserInfoService, useClass: MockUserService },
+    { provide: UsersService, useClass: MockUserService },
+    { provide: UserSettingsService, useClass: SettingsService },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
