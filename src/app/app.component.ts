@@ -38,6 +38,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(loadUsers());
+    this.userSettings$.subscribe(settings => {
+      console.log('User settings:', settings);
+    });
+    this.language$.subscribe(language => {
+      console.log('Language:', language);
+    });
   }
 
   loadUserInfo(): void {
