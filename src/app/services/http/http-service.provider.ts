@@ -13,14 +13,16 @@ import { UserSettingsService } from './settings/settings.service.abstract';
 const userServiceFactory = (
   config: HttpServiceConfig
 ): UserInfoService | UsersService => {
-  return config.useUserServiceMock ? new MockUserService() : new UserService();
+  return config.userServiceMockEnabled
+    ? new MockUserService()
+    : new UserService();
 };
 
 const settingsServiceFactory = (
   config: HttpServiceConfig,
   http: HttpClient
 ): UserSettingsService => {
-  return config.useUserServiceMock
+  return config.userSettingsMockEnabled
     ? new MockSettingsService()
     : new SettingsService(http);
 };

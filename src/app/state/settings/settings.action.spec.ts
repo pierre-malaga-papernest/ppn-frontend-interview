@@ -24,12 +24,12 @@ describe('Settings Actions', () => {
     });
 
     it('should create loadUserSettingsSuccess action with settings', () => {
-      const settings: Settings = { theme: Constants.DEFAULT_THEME };
-      const action = loadUserSettingsSuccess({ settings });
+      const userSettings: Settings = { theme: Constants.DEFAULT_THEME };
+      const action = loadUserSettingsSuccess({ userSettings });
 
       expect({ ...action }).toEqual({
         type: LOAD_USER_SETTINGS_SUCCESS,
-        settings,
+        userSettings,
       });
     });
 

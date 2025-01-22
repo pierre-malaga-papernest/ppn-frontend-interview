@@ -40,9 +40,9 @@ export const settingsReducer = createReducer(
     ...state,
     status: StoreStatus.loading,
   })),
-  on(loadUserSettingsSuccess, (state: SettingsState, { settings }) => ({
+  on(loadUserSettingsSuccess, (state: SettingsState, { userSettings }) => ({
     ...state,
-    settings,
+    userSettings,
     status: StoreStatus.success,
   })),
   on(loadUserSettingsFailure, (state: SettingsState, { error }) => ({

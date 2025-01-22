@@ -24,7 +24,9 @@ export class SettingsEffects {
       ofType(loadUserSettings),
       switchMap(() =>
         from(this.userSettingsService.getUserSettings()).pipe(
-          map((settings: Settings) => loadUserSettingsSuccess({ settings })),
+          map((userSettings: Settings) =>
+            loadUserSettingsSuccess({ userSettings })
+          ),
           catchError((error: string) => of(loadUserSettingsFailure({ error })))
         )
       )

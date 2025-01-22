@@ -1,18 +1,18 @@
 import { InjectionToken } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 export interface HttpServiceConfig {
-  useUserServiceMock: boolean;
-  useSettingsServiceMock: boolean;
+  userServiceMockEnabled: boolean;
+  userSettingsMockEnabled: boolean;
 }
 
 export const HTTP_SERVICE_CONFIG = new InjectionToken<HttpServiceConfig>(
   'http-service.config',
   {
     providedIn: 'root',
-    // Todo: Update factory once the APIs are available
     factory: () => ({
-      useUserServiceMock: true,
-      useSettingsServiceMock: true,
+      userServiceMockEnabled: environment.userServiceMockEnabled,
+      userSettingsMockEnabled: environment.userSettingsMockEnabled,
     }),
   }
 );

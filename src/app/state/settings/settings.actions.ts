@@ -14,7 +14,7 @@ export const LOAD_LANGUAGE_FAILURE = '[Settings] Load Language Failure';
 export const loadUserSettings = createAction(LOAD_USER_SETTINGS);
 export const loadUserSettingsSuccess = createAction(
   LOAD_USER_SETTINGS_SUCCESS,
-  props<{ settings: Settings }>()
+  props<{ userSettings: Settings }>()
 );
 export const loadUserSettingsFailure = createAction(
   LOAD_USER_SETTINGS_FAILURE,

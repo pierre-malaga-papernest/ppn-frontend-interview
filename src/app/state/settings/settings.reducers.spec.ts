@@ -10,6 +10,7 @@ import {
   loadUserSettingsSuccess,
 } from './settings.actions';
 import { Action } from '@ngrx/store';
+import { Constants } from 'src/app/shared/constants';
 
 describe('Settings Reducer', () => {
   it('should return the initial state', () => {
@@ -24,8 +25,11 @@ describe('Settings Reducer', () => {
 
   it('should handle loadUserSettings action', () => {
     const { initialState } = fromReducers;
-    const action = loadUserSettings();
-    const state = fromReducers.settingsReducer(initialState, action);
+    const action: Action = loadUserSettings();
+    const state: fromReducers.SettingsState = fromReducers.settingsReducer(
+      initialState,
+      action
+    );
     expect(state).toEqual({
       ...initialState,
       status: StoreStatus.loading,
@@ -33,13 +37,16 @@ describe('Settings Reducer', () => {
   });
 
   it('should handle loadUserSettingsSuccess action', () => {
-    const settings: Settings = { theme: 'dark' };
+    const userSettings: Settings = { theme: Constants.DEFAULT_THEME };
     const { initialState } = fromReducers;
-    const action = loadUserSettingsSuccess({ settings });
-    const state = fromReducers.settingsReducer(initialState, action);
+    const action: Action = loadUserSettingsSuccess({ userSettings });
+    const state: fromReducers.SettingsState = fromReducers.settingsReducer(
+      initialState,
+      action
+    );
     expect(state).toEqual({
       ...initialState,
-      userSettings: settings,
+      userSettings,
       status: StoreStatus.success,
     });
   });
@@ -47,8 +54,11 @@ describe('Settings Reducer', () => {
   it('should handle loadUserSettingsFailure action', () => {
     const error = 'Failed to load user settings';
     const { initialState } = fromReducers;
-    const action = loadUserSettingsFailure({ error });
-    const state = fromReducers.settingsReducer(initialState, action);
+    const action: Action = loadUserSettingsFailure({ error });
+    const state: fromReducers.SettingsState = fromReducers.settingsReducer(
+      initialState,
+      action
+    );
     expect(state).toEqual({
       ...initialState,
       error,
@@ -58,8 +68,11 @@ describe('Settings Reducer', () => {
 
   it('should handle loadLanguage action', () => {
     const { initialState } = fromReducers;
-    const action = loadLanguage();
-    const state = fromReducers.settingsReducer(initialState, action);
+    const action: Action = loadLanguage();
+    const state: fromReducers.SettingsState = fromReducers.settingsReducer(
+      initialState,
+      action
+    );
     expect(state).toEqual({
       ...initialState,
       status: StoreStatus.loading,
@@ -67,10 +80,13 @@ describe('Settings Reducer', () => {
   });
 
   it('should handle loadLanguageSuccess action', () => {
-    const language = 'en';
+    const language = Constants.DEFAULT_LANGUAGE;
     const { initialState } = fromReducers;
-    const action = loadLanguageSuccess({ language });
-    const state = fromReducers.settingsReducer(initialState, action);
+    const action: Action = loadLanguageSuccess({ language });
+    const state: fromReducers.SettingsState = fromReducers.settingsReducer(
+      initialState,
+      action
+    );
     expect(state).toEqual({
       ...initialState,
       language,
@@ -81,8 +97,11 @@ describe('Settings Reducer', () => {
   it('should handle loadLanguageFailure action', () => {
     const error = 'Failed to load language';
     const { initialState } = fromReducers;
-    const action = loadLanguageFailure({ error });
-    const state = fromReducers.settingsReducer(initialState, action);
+    const action: Action = loadLanguageFailure({ error });
+    const state: fromReducers.SettingsState = fromReducers.settingsReducer(
+      initialState,
+      action
+    );
     expect(state).toEqual({
       ...initialState,
       error,
