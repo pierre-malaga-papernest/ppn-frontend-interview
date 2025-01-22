@@ -31,9 +31,10 @@ export class AppComponent implements OnInit {
 
   constructor(private readonly store: Store<AppState>) {
     this.userInfo$ = this.store.pipe(select(selectUserInfo));
+    this.users$ = this.store.pipe(select(selectAllUsers));
+
     this.userSettings$ = this.store.pipe(select(selectUserSettings));
     this.language$ = this.store.pipe(select(selectLanguage));
-    this.users$ = this.store.pipe(select(selectAllUsers));
   }
 
   ngOnInit(): void {
