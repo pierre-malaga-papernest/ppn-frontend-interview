@@ -1,11 +1,12 @@
 import { meMock } from "@mocks/me";
 import { usersMock } from "@mocks/users";
+import { Action } from "@ngrx/store";
 import { UserActions } from "@store/user/user.actions";
 import { meReducer, usersReducer } from "@store/user/user.reducer";
 
 describe('Me Reducer', () => {
   it('should return the default state', () => {
-    const action = {} as any;
+    const action = {} as Action;
     const state = meReducer(undefined, action);
     expect(state).toEqual({});
   });
@@ -19,7 +20,7 @@ describe('Me Reducer', () => {
 
 describe('Users Reducer', () => {
   it('should return the default state', () => {
-    const action = {} as any;
+    const action = {} as Action;
     const state = usersReducer(undefined, action);
     expect(state).toEqual([]);
   });

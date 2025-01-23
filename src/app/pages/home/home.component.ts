@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { User } from '@interfaces/user';
 import { Store } from '@ngrx/store';
 import { SettingsActions } from '@store/settings/settings.actions';
 import { selectSettings } from '@store/settings/settings.selectors';
@@ -49,7 +50,7 @@ export class HomeComponent {
     this.store.dispatch(SettingsActions.loadSettings());
   }
 
-  trackById(_index: number, item: any): number {
+  trackById(_index: number, item: User): number {
     return item.id;
   }
 }
