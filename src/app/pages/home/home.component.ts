@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { SettingsActions } from '@store/settings/settings.actions';
 import { selectSettings } from '@store/settings/settings.selectors';
@@ -8,21 +8,27 @@ import { selectUsersPageViewModel } from '@store/user/user.selectors';
 
 @Component({
   selector: 'app-home',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
+    <!-- Settings -->
+    <div>
+      <button id="loadSettings" (click)="loadSettings()">Load Settings</button>
+      <ng-container *ngIf="settings$ | async as settings">
+        <span>{{ settings.theme }}, {{ settings.language }}</span>
+      </ng-container>
+    </div>
+
     <ng-container *ngIf="vm$ | async as vm">
+      <!-- Header -->
       <div>
-        <h1>Hello, {{ vm.me.name }}!</h1>
-        <button (click)="loadMe()">Load User</button>
-        <button id="loadSettings" (click)="loadSettings()">Load Settings</button>
+        <h1>Welcome, {{ vm.me.name }}!</h1>
       </div>
 
-      <div *ngFor="let user of vm.users">
-        {{user.name}}{{ user.email }}
+      <!-- Users -->
+      <h2>Users</h2>
+      <div *ngFor="let user of vm.users; trackBy: trackById">
+        <app-user [user]="user"></app-user>
       </div>
-    </ng-container>
-
-    <ng-container *ngIf="settings$ | async as settings">
-      <span>{{ settings.theme }}, {{ settings.language }}</span>
     </ng-container>
   `
 })
@@ -39,11 +45,11 @@ export class HomeComponent {
     this.store.dispatch(UserActions.loadUsers());
   }
 
-  loadMe() {
-    this.store.dispatch(UserActions.loadMe());
+  loadSettings(): void {
+    this.store.dispatch(SettingsActions.loadSettings());
   }
 
-  loadSettings() {
-    this.store.dispatch(SettingsActions.loadSettings());
+  trackById(_index: number, item: any): number {
+    return item.id;
   }
 }

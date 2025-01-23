@@ -2,14 +2,40 @@
   {
     "id": 1,
     "name": "John",
-    "email": "test",
-    "dob": "test",
+    "email": "test1@example.com",
+    "dob": "1990-05-12",
     "address": {
       "street_name": "asd",
       "complement": "asd",
       "number": 1,
       "city": "ads",
       "zip_code": "2"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Alice",
+    "email": "test2@example.com",
+    "dob": "1985-07-22",
+    "address": {
+      "street_name": "qwe",
+      "complement": "qwe",
+      "number": 2,
+      "city": "bcd",
+      "zip_code": "3"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Bob",
+    "email": "test3@example.com",
+    "dob": "2000-11-01",
+    "address": {
+      "street_name": "zxc",
+      "complement": "zxc",
+      "number": 3,
+      "city": "efg",
+      "zip_code": "4"
     }
   }
 ]
