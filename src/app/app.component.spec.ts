@@ -37,7 +37,7 @@ describe('AppComponent', () => {
     expect(storeSpy).toHaveBeenCalledWith(loadUsers());
   });
 
-  it('should load user on button click', () => {
+  it('should load user info on button click', () => {
     const buttons = fixture.nativeElement.querySelectorAll('button');
     buttons[0].click();
 
