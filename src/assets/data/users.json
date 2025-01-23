@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "name": "John",
+    "email": "test",
+    "dob": "test",
+    "address": {
+      "street_name": "asd",
+      "complement": "asd",
+      "number": 1,
+      "city": "ads",
+      "zip_code": "2"
+    }
+  }
+]
