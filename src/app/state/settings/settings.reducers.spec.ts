@@ -1,6 +1,6 @@
 import * as fromReducers from './settings.reducers';
-import { Settings } from 'src/app/model/settings';
-import { StoreStatus } from 'src/app/model/enum/store-status.enum';
+import { Settings } from '@model/settings';
+import { StoreStatus } from '@model/enum/store-status.enum';
 import {
   loadUserSettingsFailure,
   loadLanguage,
@@ -10,7 +10,7 @@ import {
   loadUserSettingsSuccess,
 } from './settings.actions';
 import { Action } from '@ngrx/store';
-import { Constants } from 'src/app/shared/constants';
+import { Constants } from '@shared/constants';
 
 describe('Settings Reducer', () => {
   it('should return the initial state', () => {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { User } from 'src/app/model/user';
-import { UserInfo } from 'src/app/model/user-info';
+import { User } from '@model/user';
+import { UserInfo } from '@model/user-info';
 import { UsersService, UserInfoService } from './user.service.abstract';
 
 @Injectable()

@@ -1,14 +1,14 @@
 import { TestBed } from '@angular/core/testing';
+import { UserInfo } from '@model/user-info';
 import { provideMockActions } from '@ngrx/effects/testing';
+import { UserInfoService } from '@services/http/user/user.service.abstract';
 import { Observable, of, throwError } from 'rxjs';
-import { UserInfoEffects } from './user-info.effects';
-import { UserInfoService } from 'src/app/services/http/user/user.service.abstract';
 import {
   loadUserInfo,
   loadUserInfoSuccess,
   loadUserInfoFailure,
 } from './user-info.actions';
-import { UserInfo } from 'src/app/model/user-info';
+import { UserInfoEffects } from './user-info.effects';
 
 describe('UserInfoEffects', () => {
   let actions$: Observable<any>;

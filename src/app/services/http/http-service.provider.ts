@@ -1,7 +1,7 @@
 import {
   HTTP_SERVICE_CONFIG,
   HttpServiceConfig,
-} from 'src/app/config/http-service.config';
+} from '@config/http-service.config';
 import { MockUserService } from './user/mock-user.service';
 import { UserService } from './user/user.service';
 import { UserInfoService, UsersService } from './user/user.service.abstract';

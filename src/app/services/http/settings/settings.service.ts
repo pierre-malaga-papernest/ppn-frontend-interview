@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Settings } from 'src/app/model/settings';
+import { Settings } from '@model/settings';
 import { UserSettingsService } from './settings.service.abstract';
 
 @Injectable()

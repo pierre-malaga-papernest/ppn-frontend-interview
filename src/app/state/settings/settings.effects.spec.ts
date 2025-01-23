@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
+import { Settings } from '@model/settings';
 import { provideMockActions } from '@ngrx/effects/testing';
+import { UserSettingsService } from '@services/http/settings/settings.service.abstract';
+import { Constants } from '@shared/constants';
 import { Observable, of, throwError } from 'rxjs';
-import { SettingsEffects } from './settings.effects';
-import { UserSettingsService } from 'src/app/services/http/settings/settings.service.abstract';
-import { Settings } from 'src/app/model/settings';
 import {
   loadUserSettings,
   loadUserSettingsSuccess,
@@ -12,7 +12,7 @@ import {
   loadLanguageSuccess,
   loadLanguageFailure,
 } from './settings.actions';
-import { Constants } from 'src/app/shared/constants';
+import { SettingsEffects } from './settings.effects';
 
 describe('SettingsEffects', () => {
   let actions$: Observable<any>;

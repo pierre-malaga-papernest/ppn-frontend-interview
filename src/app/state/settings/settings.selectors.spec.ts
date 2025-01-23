@@ -1,11 +1,11 @@
-import { Constants } from 'src/app/shared/constants';
+import { Constants } from '@shared/constants';
 import { AppState } from '../app.state';
 import {
   selectSettings,
   selectUserSettings,
   selectLanguage,
 } from './settings.selectors';
-import { StoreStatus } from 'src/app/model/enum/store-status.enum';
+import { StoreStatus } from '@model/enum/store-status.enum';
 import { UserInfoState } from '../user-info/user-info.reducers';
 import { UsersState } from '../users/users.reducers';
 

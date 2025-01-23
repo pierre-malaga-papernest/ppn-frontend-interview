@@ -2,9 +2,9 @@ import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable, of, throwError } from 'rxjs';
 import { UserEffects } from './users.effects';
-import { UsersService } from 'src/app/services/http/user/user.service.abstract';
+import { UsersService } from '@services/http/user/user.service.abstract';
 import { loadUsers, loadUsersSuccess, loadUsersFailure } from './users.actions';
-import { User } from 'src/app/model/user';
+import { User } from '@model/user';
 
 describe('UserEffects', () => {
   let actions$: Observable<any>;

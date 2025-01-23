@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { switchMap, from, map, catchError, of } from 'rxjs';
-import { Settings } from 'src/app/model/settings';
+import { Settings } from '@model/settings';
 import {
   loadUserSettings,
   loadUserSettingsSuccess,
@@ -10,7 +10,7 @@ import {
   loadLanguageFailure,
   loadLanguageSuccess,
 } from './settings.actions';
-import { UserSettingsService } from 'src/app/services/http/settings/settings.service.abstract';
+import { UserSettingsService } from '@services/http/settings/settings.service.abstract';
 
 @Injectable()
 export class SettingsEffects {

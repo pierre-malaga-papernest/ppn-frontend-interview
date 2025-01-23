@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Settings } from 'src/app/model/settings';
+import { Settings } from '@model/settings';
 
 export const LOAD_USER_SETTINGS = '[Settings] Load User Settings';
 export const LOAD_USER_SETTINGS_SUCCESS =

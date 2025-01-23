@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { Settings } from 'src/app/model/settings';
+import { Settings } from '@model/settings';
 
 export abstract class UserSettingsService {
   abstract getUserSettings(): Observable<Settings>;

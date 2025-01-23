@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { UserInfoComponent } from './user-info.component';
-import { UserInfo } from 'src/app/model/user-info';
 import { By } from '@angular/platform-browser';
+import { UserInfo } from '@model/user-info';
+import { UserInfoComponent } from './user-info.component';
 
 describe('UserInfoComponent', () => {
   let component: UserInfoComponent;

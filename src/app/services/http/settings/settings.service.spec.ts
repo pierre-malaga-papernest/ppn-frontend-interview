@@ -4,8 +4,8 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { SettingsService } from './settings.service';
-import { Settings } from 'src/app/model/settings';
-import { Constants } from 'src/app/shared/constants';
+import { Settings } from '@model/settings';
+import { Constants } from '@shared/constants';
 
 describe('SettingsService', () => {
   let service: SettingsService;

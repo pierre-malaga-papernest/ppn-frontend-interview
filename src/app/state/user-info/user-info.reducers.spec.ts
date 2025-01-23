@@ -4,8 +4,8 @@ import {
   loadUserInfoSuccess,
   loadUserInfoFailure,
 } from './user-info.actions';
-import { StoreStatus } from 'src/app/model/enum/store-status.enum';
-import { UserInfo } from 'src/app/model/user-info';
+import { StoreStatus } from '@model/enum/store-status.enum';
+import { UserInfo } from '@model/user-info';
 import { Action } from '@ngrx/store';
 
 describe('UserInfo Reducer', () => {

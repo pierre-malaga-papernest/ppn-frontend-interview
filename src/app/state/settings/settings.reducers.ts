@@ -1,10 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
-import { Constants } from 'src/app/shared/constants';
-import { Settings } from 'src/app/model/settings';
-import {
-  StoreStatus,
-  StoreStatusType,
-} from 'src/app/model/enum/store-status.enum';
+import { Constants } from '@shared/constants';
+import { Settings } from '@model/settings';
+import { StoreStatus, StoreStatusType } from '@model/enum/store-status.enum';
 import {
   loadUserSettings,
   loadUserSettingsSuccess,

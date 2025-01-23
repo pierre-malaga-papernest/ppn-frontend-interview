@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { User } from '@model/user';
 import { UserListComponent } from './user-list.component';
-import { User } from 'src/app/model/user';
 
 describe('UserListComponent', () => {
   let component: UserListComponent;

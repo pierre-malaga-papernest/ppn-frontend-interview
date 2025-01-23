@@ -1,9 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-import { UserInfo } from 'src/app/model/user-info';
-import {
-  StoreStatus,
-  StoreStatusType,
-} from 'src/app/model/enum/store-status.enum';
+import { UserInfo } from '@model/user-info';
+import { StoreStatus, StoreStatusType } from '@model/enum/store-status.enum';
 import {
   loadUserInfo,
   loadUserInfoFailure,

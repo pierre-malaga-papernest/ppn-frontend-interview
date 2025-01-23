@@ -1,6 +1,6 @@
 import { selectUsers, selectAllUsers } from './users.selectors';
 import { AppState } from '../app.state';
-import { StoreStatus } from 'src/app/model/enum/store-status.enum';
+import { StoreStatus } from '@model/enum/store-status.enum';
 import { UserInfoState } from '../user-info/user-info.reducers';
 import { SettingsState } from '../settings/settings.reducers';
 

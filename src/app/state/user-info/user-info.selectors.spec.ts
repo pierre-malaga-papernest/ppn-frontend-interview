@@ -2,7 +2,7 @@ import { AppState } from '../app.state';
 import { SettingsState } from '../settings/settings.reducers';
 import { selectUserInfoState, selectUserInfo } from './user-info.selectors';
 import { UsersState } from '../users/users.reducers';
-import { StoreStatus } from 'src/app/model/enum/store-status.enum';
+import { StoreStatus } from '@model/enum/store-status.enum';
 
 describe('UserInfo Selectors', () => {
   const initialState: AppState = {

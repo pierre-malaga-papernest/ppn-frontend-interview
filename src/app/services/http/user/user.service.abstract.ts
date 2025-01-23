@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
-import { User } from 'src/app/model/user';
-import { UserInfo } from 'src/app/model/user-info';
+import { User } from '@model/user';
+import { UserInfo } from '@model/user-info';
 
 export abstract class UserInfoService {
   abstract getUserInfo(): Observable<UserInfo>;

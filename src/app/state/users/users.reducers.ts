@@ -1,9 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-import { User } from 'src/app/model/user';
-import {
-  StoreStatus,
-  StoreStatusType,
-} from 'src/app/model/enum/store-status.enum';
+import { User } from '@model/user';
+import { StoreStatus, StoreStatusType } from '@model/enum/store-status.enum';
 import { loadUsers, loadUsersSuccess, loadUsersFailure } from './users.actions';
 
 export interface UsersState {

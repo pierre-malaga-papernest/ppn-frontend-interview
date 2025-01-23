@@ -6,7 +6,7 @@ import {
   LOAD_USERS_SUCCESS,
   LOAD_USERS_FAILURE,
 } from './users.actions';
-import { User } from 'src/app/model/user';
+import { User } from '@model/user';
 
 describe('Users Actions', () => {
   it('should create loadUsers action', () => {

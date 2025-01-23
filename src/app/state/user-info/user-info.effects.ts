@@ -6,8 +6,8 @@ import {
   loadUserInfoFailure,
   loadUserInfoSuccess,
 } from './user-info.actions';
-import { UserInfo } from 'src/app/model/user-info';
-import { UserInfoService } from 'src/app/services/http/user/user.service.abstract';
+import { UserInfo } from '@model/user-info';
+import { UserInfoService } from '@services/http/user/user.service.abstract';
 
 @Injectable()
 export class UserInfoEffects {

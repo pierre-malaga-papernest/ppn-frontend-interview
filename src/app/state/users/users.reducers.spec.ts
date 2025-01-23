@@ -1,7 +1,7 @@
 import * as fromReducers from './users.reducers';
 import { loadUsers, loadUsersSuccess, loadUsersFailure } from './users.actions';
-import { StoreStatus } from 'src/app/model/enum/store-status.enum';
-import { User } from 'src/app/model/user';
+import { StoreStatus } from '@model/enum/store-status.enum';
+import { User } from '@model/user';
 import { Action } from '@ngrx/store';
 
 describe('Users Reducer', () => {

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Settings } from '@model/settings';
+import { Constants } from '@shared/constants';
 import { Observable, of } from 'rxjs';
-import { Settings } from 'src/app/model/settings';
 import { UserSettingsService } from './settings.service.abstract';
-import { Constants } from 'src/app/shared/constants';
 
 @Injectable()
 export class MockSettingsService implements UserSettingsService {

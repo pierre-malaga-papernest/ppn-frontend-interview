@@ -1,4 +1,4 @@
-import { UserInfo } from 'src/app/model/user-info';
+import { UserInfo } from '@model/user-info';
 import {
   LOAD_USER_INFO,
   LOAD_USER_INFO_FAILURE,

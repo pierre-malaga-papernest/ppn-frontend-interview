@@ -12,8 +12,8 @@ import {
   loadUserSettingsFailure,
   loadUserSettingsSuccess,
 } from './settings.actions';
-import { Settings } from 'src/app/model/settings';
-import { Constants } from 'src/app/shared/constants';
+import { Settings } from '@model/settings';
+import { Constants } from '@shared/constants';
 
 describe('Settings Actions', () => {
   describe('UserSettings Actions', () => {
