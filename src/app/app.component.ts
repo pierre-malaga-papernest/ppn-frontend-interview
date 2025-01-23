@@ -24,10 +24,10 @@ import { loadUsers } from './state/users/users.actions';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  userInfo$: Observable<UserInfo | null>;
-  userSettings$: Observable<Settings>;
-  language$: Observable<string>;
-  users$: Observable<User[]>;
+  readonly userInfo$: Observable<UserInfo | null>;
+  readonly userSettings$: Observable<Settings>;
+  readonly language$: Observable<string>;
+  readonly users$: Observable<User[]>;
 
   constructor(private readonly store: Store<AppState>) {
     this.userInfo$ = this.store.pipe(select(selectUserInfo));
@@ -39,12 +39,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(loadUsers());
-    this.userSettings$.subscribe(settings => {
-      console.log('User settings:', settings);
-    });
-    this.language$.subscribe(language => {
-      console.log('Language:', language);
-    });
   }
 
   loadUserInfo(): void {
