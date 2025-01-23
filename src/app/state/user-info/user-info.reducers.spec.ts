@@ -7,6 +7,7 @@ import {
 import { StoreStatus } from '@model/enum/store-status.enum';
 import { UserInfo } from '@model/user-info';
 import { Action } from '@ngrx/store';
+import { mockUserInfo } from '@mocks/mock-user-info';
 
 describe('UserInfo Reducer', () => {
   it('should return the initial state', () => {
@@ -33,19 +34,7 @@ describe('UserInfo Reducer', () => {
   });
 
   it('should handle loadUserInfoSuccess action', () => {
-    const userInfo: UserInfo = {
-      id: 1,
-      name: 'Nathan Drake',
-      email: 'nathan@drake.co',
-      dob: '1980-07-19',
-      address: {
-        streetName: '1234 Uncharted St',
-        complement: 'Apt 101',
-        number: 1234,
-        city: 'Los Angeles',
-        zipCode: '90001',
-      },
-    };
+    const userInfo: UserInfo = mockUserInfo;
     const { initialState } = fromReducers;
     const action: Action = loadUserInfoSuccess({ userInfo });
     const state: fromReducers.UserInfoState = fromReducers.userInfoReducer(

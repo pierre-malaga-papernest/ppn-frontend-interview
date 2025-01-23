@@ -9,6 +9,7 @@ import {
   loadUserInfoFailure,
 } from './user-info.actions';
 import { UserInfoEffects } from './user-info.effects';
+import { mockUserInfo } from '@mocks/mock-user-info';
 
 describe('UserInfoEffects', () => {
   let actions$: Observable<any>;
@@ -33,19 +34,7 @@ describe('UserInfoEffects', () => {
   });
 
   it('should return a loadUserInfoSuccess action with userInfo on success', (done: DoneFn) => {
-    const userInfo: UserInfo = {
-      id: 1,
-      name: 'Nathan Drake',
-      email: 'nathan@drake.co',
-      dob: '1980-07-19',
-      address: {
-        streetName: '1234 Uncharted St',
-        complement: 'Apt 101',
-        number: 1234,
-        city: 'Los Angeles',
-        zipCode: '90001',
-      },
-    };
+    const userInfo: UserInfo = mockUserInfo;
     const action = loadUserInfo();
     const outcome = loadUserInfoSuccess({ userInfo });
 

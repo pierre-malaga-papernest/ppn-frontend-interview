@@ -1,6 +1,6 @@
 <div class="loading-buttons app-container">
   <button (click)="loadUserInfo()">Load User</button>
-  <button (click)="loadSettings()">Load Settings</button>
+  <button (click)="loadUserSettingsAndLanguage()">Load Settings</button>
 </div>
 <div class="user-info app-container" *ngIf="userInfo$ | async as userInfo">
   <h1>Hello, {{ userInfo.name }}!</h1>

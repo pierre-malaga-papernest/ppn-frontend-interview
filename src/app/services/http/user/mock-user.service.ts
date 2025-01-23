@@ -3,25 +3,14 @@ import { Observable, of } from 'rxjs';
 import { User } from '@model/user';
 import { UserInfo } from '@model/user-info';
 import { UsersService, UserInfoService } from './user.service.abstract';
+import { mockUserInfo } from '@mocks/mock-user-info';
 
 @Injectable()
 export class MockUserService implements UsersService, UserInfoService {
   constructor() {}
 
   getUserInfo(): Observable<UserInfo> {
-    const userInfo: UserInfo = {
-      id: 1,
-      name: 'Nathan Drake',
-      email: 'nathan@drake.co',
-      dob: '1980-07-19',
-      address: {
-        streetName: '1234 Uncharted St',
-        complement: 'Apt 101',
-        number: 1234,
-        city: 'Los Angeles',
-        zipCode: '90001',
-      },
-    };
+    const userInfo: UserInfo = mockUserInfo;
     return of(userInfo);
   }
 

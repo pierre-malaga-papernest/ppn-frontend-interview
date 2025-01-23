@@ -6,6 +6,7 @@ import {
 import { SettingsService } from './settings.service';
 import { Settings } from '@model/settings';
 import { Constants } from '@shared/constants';
+import { mockSettings } from '@mocks/mock-settings';
 
 describe('SettingsService', () => {
   let service: SettingsService;
@@ -25,7 +26,7 @@ describe('SettingsService', () => {
   });
 
   it('should fetch user settings', () => {
-    const dummySettings: Settings = { theme: Constants.DEFAULT_THEME };
+    const dummySettings: Settings = mockSettings;
 
     service.getUserSettings().subscribe(settings => {
       expect(settings).toEqual(dummySettings);

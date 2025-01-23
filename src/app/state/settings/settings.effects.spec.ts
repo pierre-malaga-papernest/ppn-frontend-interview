@@ -13,6 +13,7 @@ import {
   loadLanguageFailure,
 } from './settings.actions';
 import { SettingsEffects } from './settings.effects';
+import { mockSettings } from '@mocks/mock-settings';
 
 describe('SettingsEffects', () => {
   let actions$: Observable<any>;
@@ -40,7 +41,7 @@ describe('SettingsEffects', () => {
   });
 
   it('should return a loadUserSettingsSuccess action with userSettings on success', (done: DoneFn) => {
-    const userSettings: Settings = { theme: Constants.DEFAULT_THEME };
+    const userSettings: Settings = mockSettings;
     const action = loadUserSettings();
     const outcome = loadUserSettingsSuccess({ userSettings });
 

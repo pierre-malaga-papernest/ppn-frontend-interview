@@ -1,3 +1,4 @@
+import { mockSettings } from '@mocks/mock-settings';
 import {
   LOAD_LANGUAGE,
   LOAD_LANGUAGE_FAILURE,
@@ -24,7 +25,7 @@ describe('Settings Actions', () => {
     });
 
     it('should create loadUserSettingsSuccess action with settings', () => {
-      const userSettings: Settings = { theme: Constants.DEFAULT_THEME };
+      const userSettings: Settings = mockSettings;
       const action = loadUserSettingsSuccess({ userSettings });
 
       expect({ ...action }).toEqual({

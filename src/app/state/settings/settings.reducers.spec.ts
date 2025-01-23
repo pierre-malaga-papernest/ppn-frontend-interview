@@ -11,6 +11,7 @@ import {
 } from './settings.actions';
 import { Action } from '@ngrx/store';
 import { Constants } from '@shared/constants';
+import { mockSettings } from '@mocks/mock-settings';
 
 describe('Settings Reducer', () => {
   it('should return the initial state', () => {
@@ -37,7 +38,7 @@ describe('Settings Reducer', () => {
   });
 
   it('should handle loadUserSettingsSuccess action', () => {
-    const userSettings: Settings = { theme: Constants.DEFAULT_THEME };
+    const userSettings: Settings = mockSettings;
     const { initialState } = fromReducers;
     const action: Action = loadUserSettingsSuccess({ userSettings });
     const state: fromReducers.SettingsState = fromReducers.settingsReducer(

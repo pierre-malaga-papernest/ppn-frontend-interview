@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
     this.store.dispatch(loadUserInfo());
   }
 
-  loadSettings(): void {
+  loadUserSettingsAndLanguage(): void {
     this.store.dispatch(loadUserSettings());
     this.store.dispatch(loadLanguage());
   }

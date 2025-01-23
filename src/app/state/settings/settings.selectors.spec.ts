@@ -8,13 +8,14 @@ import {
 import { StoreStatus } from '@model/enum/store-status.enum';
 import { UserInfoState } from '../user-info/user-info.reducers';
 import { UsersState } from '../users/users.reducers';
+import { mockSettings } from '@mocks/mock-settings';
 
 describe('Settings Selectors', () => {
   const initialState: AppState = {
     users: {} as UsersState,
     userInfo: {} as UserInfoState,
     settings: {
-      userSettings: { theme: Constants.DEFAULT_THEME },
+      userSettings: mockSettings,
       language: Constants.DEFAULT_LANGUAGE,
       status: StoreStatus.success,
       error: null,
