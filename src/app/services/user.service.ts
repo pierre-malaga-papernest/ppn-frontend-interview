@@ -5,13 +5,16 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class UserService {
+  public readonly USER_API: string = 'assets/data/users.json';
+  public readonly ME_API: string = 'assets/data/me.json';
+
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>('assets/data/users.json');
+    return this.http.get<User[]>(this.USER_API);
   }
 
   getMe(): Observable<User> {
-    return this.http.get<User>('assets/data/me.json');
+    return this.http.get<User>(this.ME_API);
   }
 }

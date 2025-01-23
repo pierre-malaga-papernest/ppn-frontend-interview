@@ -8,6 +8,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '@store/state';
 import { of } from 'rxjs';
 import { SettingsActions } from '@store/settings/settings.actions';
+import { UserComponent } from '@components/user.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -16,6 +17,7 @@ describe('HomeComponent', () => {
 
   beforeEach(() => {
       TestBed.configureTestingModule({
+        imports: [UserComponent],
         declarations: [HomeComponent],
         providers: [
           {
