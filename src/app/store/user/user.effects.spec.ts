@@ -8,6 +8,7 @@ import { UserEffects } from '@store/user/user.effects';
 import { meMock } from '@mocks/me';
 import { HttpClientModule } from '@angular/common/http';
 import { usersMock } from '@mocks/users';
+import { User } from '@interfaces/user';
 
 class MockUserService {
   getUsers() {
@@ -20,7 +21,7 @@ class MockUserService {
 }
 
 describe('User Effects', () => {
-  let actions$: Observable<any>;
+  let actions$: Observable<User>;
   let effects: UserEffects;
 
   beforeEach(() => {
