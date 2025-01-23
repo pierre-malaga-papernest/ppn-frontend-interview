@@ -3,7 +3,9 @@ import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { AppComponent } from './app.component';
 import { AppState } from './store/state';
-import { UserActions } from 'src/app/store/user/user.actions';
+import { SettingsActions } from '@store/settings/settings.actions';
+import { meMock } from '@mocks/me';
+import { usersMock } from '@mocks/users';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -17,7 +19,10 @@ describe('AppComponent', () => {
         {
           provide: Store,
           useValue: {
-            select: jasmine.createSpy().and.returnValue(of(null)),
+            select: jasmine.createSpy().and.returnValue(of({
+              me: meMock,
+              users: usersMock
+            })),
             dispatch: jasmine.createSpy(),
           },
         },
@@ -30,14 +35,12 @@ describe('AppComponent', () => {
   });
 
   it('should create the app', () => {
-
     expect(component).toBeTruthy();
   });
 
-  it('should load user on button click', () => {
-    const spy = spyOn(store, 'dispatch');
-    const button = fixture.nativeElement.querySelector('button');
+  it('should load settings on button click', () => {
+    const button = fixture.nativeElement.querySelector('#loadSettings');
     button.click();
-    expect(spy).toHaveBeenCalledWith(UserActions.loadMe());
+    expect(store.dispatch).toHaveBeenCalledWith(SettingsActions.loadSettings());
   });
 });

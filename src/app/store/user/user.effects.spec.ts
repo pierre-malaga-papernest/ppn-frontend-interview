@@ -5,10 +5,17 @@ import { hot, cold } from 'jasmine-marbles';
 import { UserService } from '@services/user.service';
 import { UserActions, UserApiActions } from '@store/user/user.actions';
 import { UserEffects } from '@store/user/user.effects';
+import { meMock } from '@mocks/me';
+import { HttpClientModule } from '@angular/common/http';
+import { usersMock } from '@mocks/users';
 
 class MockUserService {
   getUsers() {
-    return of({ name: 'Alice' });
+    return of(usersMock);
+  }
+
+  getMe() {
+    return of(meMock);
   }
 }
 
@@ -18,36 +25,25 @@ describe('User Effects', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientModule],
       providers: [
         UserEffects,
         provideMockActions(() => actions$),
-        { provide: UserService, useClasss: MockUserService },
+        { provide: UserService, useClass: MockUserService },
       ],
     });
 
     effects = TestBed.inject(UserEffects);
   });
 
-  it('should return a LOAD_USER_SUCCESS action', () => {
+  it('should return a LOAD_ME_SUCCESS action', () => {
     const action = UserActions.loadMe();
     const completion = UserApiActions.loadMeSuccess({
-      me: {
-        id: 1,
-        name: 'John',
-        email: 'test',
-        dob: 'test',
-        address: {
-          street_name: 'asd',
-          complement: 'asd',
-          number: 1,
-          city: 'ads',
-          zip_code: '2'
-        }
-      }
+      me: meMock
     });
 
     actions$ = hot('-a', { a: action });
-    const expected = cold('--b', { b: completion });
+    const expected = cold('-b', { b: completion });
 
     expect(effects.loadMe$).toBeObservable(expected);
   });

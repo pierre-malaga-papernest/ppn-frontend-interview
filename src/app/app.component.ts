@@ -14,7 +14,7 @@ import { selectUsersPageViewModel } from '@store/user/user.selectors';
       <div>
         <h1>Hello, {{ vm.me.name }}!</h1>
         <button (click)="loadMe()">Load User</button>
-        <button (click)="loadSettings()">Load Settings</button>
+        <button id="loadSettings" (click)="loadSettings()">Load Settings</button>
       </div>
 
       <div *ngFor="let user of vm.users">
@@ -29,7 +29,7 @@ import { selectUsersPageViewModel } from '@store/user/user.selectors';
 })
 export class AppComponent implements OnInit {
   readonly vm$ = this.store.select(selectUsersPageViewModel);
-  readonly settings$ = this.store.select(selectSettings)
+  readonly settings$ = this.store.select(selectSettings);
 
   constructor(
     private readonly store: Store<AppState>
