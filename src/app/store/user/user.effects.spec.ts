@@ -47,4 +47,16 @@ describe('User Effects', () => {
 
     expect(effects.loadMe$).toBeObservable(expected);
   });
+
+  it('should return a LOAD_USERS_SUCCESS action', () => {
+    const action = UserActions.loadUsers();
+    const completion = UserApiActions.loadUsersSuccess({
+      users: usersMock
+    });
+
+    actions$ = hot('-a', { a: action });
+    const expected = cold('-b', { b: completion });
+
+    expect(effects.loadUsers$).toBeObservable(expected);
+  });
 });

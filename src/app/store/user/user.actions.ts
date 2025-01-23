@@ -1,7 +1,12 @@
 import { User } from '@interfaces/user';
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 
-export const LOAD_USER = '[User] Load Me';
+export const LOAD_ME = '[User] Load Me';
+export const LOAD_USERS = '[User] Load Users';
+export const LOAD_ME_SUCCESS = '[User API] Load Me Success';
+export const LOAD_ME_FAILURE = '[User API] Load Me Failure';
+export const LOAD_USERS_SUCCESS = '[User API] Load Users Success';
+export const LOAD_USERS_FAILURE = '[User API] Load Users Failure';
 
 export const UserActions = createActionGroup({
   source: 'User',
