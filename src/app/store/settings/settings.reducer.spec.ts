@@ -12,7 +12,7 @@ describe('Settings Reducer', () => {
   it('should load settings', () => {
     const action = SettingsActions.loadSettings();
     const state = settingsReducer(settingsMock, action);
-    expect(state.theme).toEqual('default');
-    expect(state.language).toEqual('en');
+    expect(state.theme).toEqual('dark');
+    expect(state.language).toEqual('es');
   });
 });
