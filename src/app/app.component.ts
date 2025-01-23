@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { SettingsService } from '@services/settings.service';
 import { SettingsActions } from '@store/settings/settings.actions';
 import { selectSettings } from '@store/settings/settings.selectors';
 import { AppState } from '@store/state';
@@ -10,6 +9,7 @@ import { selectUsersPageViewModel } from '@store/user/user.selectors';
 @Component({
   selector: 'app-root',
   template: `
+    <router-outlet></router-outlet>
     <ng-container *ngIf="vm$ | async as vm">
       <div>
         <h1>Hello, {{ vm.me.name }}!</h1>

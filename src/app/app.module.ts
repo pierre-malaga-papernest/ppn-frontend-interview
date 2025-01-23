@@ -9,6 +9,8 @@ import { UserEffects } from '@store/user/user.effects';
 import { meReducer, usersReducer } from '@store/user/user.reducer';
 import { settingsReducer } from '@store/settings/settings.reducer';
 import { SettingsEffects } from '@store/settings/settings.effects';
+import { RouterModule } from '@angular/router';
+import { AppRoutes } from '@app.routing.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +23,7 @@ import { SettingsEffects } from '@store/settings/settings.effects';
       settings: settingsReducer
     }),
     EffectsModule.forRoot([UserEffects, SettingsEffects]),
+    RouterModule.forRoot(AppRoutes)
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
