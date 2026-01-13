@@ -8,15 +8,10 @@ import { SettingsService } from './services/settings.service';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <div *ngIf="user$ | async as user">
-      <h1>Hello, {{ user.name }}!</h1>
-      <button (click)="loadUser()">Load User</button>
-      <button (click)="loadSettings()">Load Settings</button>
-    </div>
-  `,
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   user$: Observable<any>;
   _userList: Array<User>;
 
@@ -30,13 +25,15 @@ export class AppComponent {
     this.user$.subscribe((users) => this._userList = users);
   }
 
-  // Error: No return type
   loadUser() {
     this.store.dispatch(new fromActions.LoadUser());
   }
 
-  // Error: No return type
   loadSettings() {
     this.settings_service.getSettings();
+  }
+
+  onUserSelected(userId) {
+    console.log('User selected:', userId);
   }
 }

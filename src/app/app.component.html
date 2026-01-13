@@ -1,5 +1,11 @@
 <div class="app-wrapper">
-  <div class="user-list">
-    <ul><li *ngFor"user of _userList">{{user.name}} - {{user.email}}</li></ul>
+  <div *ngIf="user$ | async as user">
+    <h1>Hello, {{ user.name }}!</h1>
+    <button (click)="loadUser()">Load User</button>
+    <button (click)="loadSettings()">Load Settings</button>
   </div>
+  <app-user-list 
+    [users]="_userList" 
+    (userSelected)="onUserSelected($event)">
+  </app-user-list>
 </div>

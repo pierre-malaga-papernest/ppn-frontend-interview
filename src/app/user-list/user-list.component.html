@@ -1,0 +1,8 @@
+<ul class="user-list">
+  <li 
+    *ngFor="let user of users" 
+    (click)="onUserClick(user)"
+    class="user-item">
+    {{ getUserDisplayName(user) }}
+  </li>
+</ul>
