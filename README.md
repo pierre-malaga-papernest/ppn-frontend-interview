@@ -1,48 +1,42 @@
+# Front-End Developer Technical Interview Task
 
-**Job Title:** Front-End Developer Technical Interview Task
+## 📝 Task Description
 
-**Task Description:**
+We are seeking a Front-End Developer to join our team. This technical task is designed to assess your ability to navigate, debug, and improve an existing Angular codebase. The application is a prototype that currently contains various intentional errors, ranging from simple bugs and compilation issues to deeper architectural "code smells" that violate clean code principles.
 
-We are seeking a Front-End Developer to join our team. As part of the interview process, we have prepared a technical task to assess your skills and expertise. The task involves reviewing and fixing errors in a sample Angular application. The application is designed to evaluate your knowledge in Angular, Redux state management, unit testing, and adherence to SOLID principles.
+## 🛠 Task Details
 
-**Task Details:**
+The application is built with **Angular** and **NgRx**. You will find errors and areas for improvement in:
+- **AppComponent & UserListComponent**: Handling of data binding, events, and lifecycle.
+- **Redux Store**: Implementation of actions, reducers, and effects.
+- **Services**: Data fetching and business logic.
+- **Unit Tests**: Fixing broken tests and improving coverage.
 
-You will be provided with an Angular application that includes intentional errors in components, actions, reducers, effects, and unit tests. Your task is to identify and fix these errors. The application is structured as follows:
+## 🔍 What We Look For
 
-- **AppComponent:** Displays user information and includes a button to load user data. There are errors related to Redux state management and the SOLID principles.
-- **UserListComponent:** A child component that displays a list of users. There are errors related to emitting events and TypeScript type definitions.
-- **Redux Store:** Contains actions, reducers, and effects. There are errors in action types, state management, and dependency injection.
-- **Unit Tests:** There are intentional errors in unit tests for various components and services.
+We evaluate your submission based on:
+- **Debugging Skills**: Technical accuracy in identifying and fixing intentional errors.
+- **Clean Code & Architecture**: Your ability to recognize and refactor code that violates **SOLID principles** (e.g., improving separation of concerns, removing nested subscriptions, and ensuring single responsibility in classes).
+- **RxJS Proficiency**: Efficient use of reactive patterns and operators.
+- **TypeScript Best Practices**: Proper utilization of types and interfaces, and ensuring the code is robust and maintainable.
+- **Quality Assurance**: Writing meaningful unit tests that validate the logic, not just the existence of code.
 
-**Key Skills to Demonstrate:**
+## 📋 Instructions
 
-- Angular framework knowledge, including components, services, and template binding.
-- Experience with Redux state management and NgRx library.
-- Strong TypeScript skills, including type definitions and error handling.
-- Unit testing expertise using Jasmine and Karma.
-- Understanding and adherence to SOLID principles in software design.
+1.  Clone this repository.
+2.  Create a new branch following the pattern `code-review/your-name`.
+3.  Fix all errors (build-time and runtime) and refactor logic where necessary.
+4.  Write additional unit tests for the fixed components/services.
+5.  Submit your code via a Pull Request or a zip file as instructed by your recruiter.
 
-**Instructions:**
+## ✅ Definition of Done
 
-1. Clone the provided repository.
-2. Create a branch with the following the pattern `code-review/your-name`
-3. Identify and fix errors in the application code, including components, actions, reducers, effects, and unit tests.
-4. Ensure that the application adheres to SOLID principles.
-5. Write additional unit tests for the fixed components.
-6. Submit the fixed code along with the updated unit tests.
+Your task is considered complete when:
+- [ ] The application compiles and runs without errors in the browser console.
+- [ ] The user data loading flow (Redux) works from end-to-end.
+- [ ] All "code smells" and architectural flaws have been refactored for better maintainability.
+- [ ] All existing and new unit tests pass.
+- [ ] The code is well-documented where necessary, explaining any major design decisions or assumptions made during refactoring.
 
-**Evaluation Criteria:**
-
-Your task will be evaluated based on the following criteria:
-
-- Accuracy in identifying and fixing errors.
-- Adherence to best practices and coding standards.
-- Clear understanding and implementation of Angular and Redux concepts.
-- Proper application of SOLID principles.
-- Quality and completeness of unit tests.
-
-**Submission:**
-
-Please submit your fixed code and unit tests within the given time frame. Ensure that your code is well-documented, and any assumptions or design decisions are clearly stated.
-
-Best of luck with the task! We look forward to reviewing your solution.
+---
+This test is the opportunity to show your skills, don't hesitate to implement anything you think can be of value here to be able to present a working project with a nice UI on the Technical Interview. Best of luck! We look forward to seeing your approach to these challenges.
